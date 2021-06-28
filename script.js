@@ -1,3 +1,7 @@
+
+
+
+/* Grid and squres */
 const gridContainer = document.querySelector(".gridContainer");
 gridContainer.style.cssText = 'display: block; background-color: grey';
 
@@ -25,13 +29,26 @@ function createSquares() {
 createSquares();
 
 const squares = Array.from(document.querySelectorAll('.squareGrid'));
-
 squares.forEach(function(square) {
     square.addEventListener('mouseover', function () {
         square.style.backgroundColor = 'black';
-        
     });
-
-    
 });
 
+
+/* Create container and clear button feature */
+const buttonContainer = document.createElement('div');
+buttonContainer.classList.add('buttonContainer');
+document.body.appendChild(buttonContainer);
+// Create clear button
+const clearbutton = document.createElement('button');
+clearbutton.classList.add('clearBTN');
+clearbutton.textContent = 'Clear';
+clearbutton.style.cssText = 'height: 100px; width: 50px';
+buttonContainer.appendChild(clearbutton);
+clearbutton.addEventListener('click', clearBoard);
+function clearBoard () {
+    squares.forEach(function(square) {
+        square.style.backgroundColor = 'white';
+    });
+};
