@@ -19,7 +19,7 @@ function createSquares() {
         
         for (let j=1; j<=gridSize; j++) {
         const squareGrid = document.createElement('div');
-        squareGrid.style.cssText = 'height: 50px; width: 50px; background-color: white; border-style: dotted';
+        squareGrid.style.cssText = 'height: 2px; width: 2px;  background-color: white; border-style: dotted;'
         squareGrid.classList.add(`squareGrid`);
         //squareGrid.textContent =`${squareCount}`;
         rowDiv.appendChild(squareGrid);
