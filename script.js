@@ -3,8 +3,11 @@ const gridContainer = document.querySelector(".gridContainer");
 gridContainer.style.cssText = 'display: block; background-color: grey';
 
 function createSquares() {
-    gridSize = prompt("Enter desired size ranging from 2x2 to 64x64");
-    
+    let gridSize = prompt("Enter desired size ranging from 2x2 to 64x64");
+    if (gridSize === null) {
+         gridSize = 16;
+    };
+    console.log(gridSize);
 
     
     for (let i=1;i<=gridSize;i++) {
