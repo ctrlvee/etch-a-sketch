@@ -5,9 +5,15 @@ body {
     flex-direction: column;
 }
 .gridContainer {
-    border-style: solid;
+    margin-top: 5%;
+   
     width: 200x;
     height: 200px;
+    
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 5%;
+    
 }
 
 .grid {
@@ -16,8 +22,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    border-style: dotted;
+    
+  
 }
 
 
-
+.clearBTN {
+    height: 20px;
+}
+.randomBTN {
+    height: 20px;
+}

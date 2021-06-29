@@ -8,11 +8,10 @@ grid.classList.add('grid');
 gridContainer.appendChild(grid);
 
 function createSquares() {
-    let gridSize = prompt("Enter desired size ranging from 2x2 to 64x64");
-    if (gridSize === null) {
-         gridSize = 16;
-    }
-    console.log(gridSize);
+    
+    //let gridSize = prompt("Enter desired size ranging from 1x1 to 64x64");
+    let gridSize = 16;
+    // default if no value gridSize = 16    
 
     
     for (let i=1; i<=(gridSize**2); i++) {
@@ -23,25 +22,7 @@ function createSquares() {
         grid.appendChild(squareGrid);
     }
     
-    /*
-    for (let i=1;i<=16;i++) {
-        const rowDiv = document.createElement('div');
-        //rowDiv.classList.add(`rowDiv${i}`);
-        rowDiv.style.cssText = 'display: flex';
-        rowDiv.classList.add('rowDiv');
-        grid.appendChild(rowDiv);
-
-        
-        for (let j=1; j<=16; j++) {
-        const squareGrid = document.createElement('div');
-        squareGrid.style.cssText =  `height: ${gridArea/gridSize}; width:${gridArea/gridSize}px; background-color: white`;
-        squareGrid.classList.add(`squareGrid`);
-        //squareGrid.textContent =`${squareCount}`;
-        rowDiv.appendChild(squareGrid);
-        }
-    }
-    */
-    
+   
     
 }
 
@@ -67,9 +48,8 @@ document.body.insertBefore(buttonContainer, gridContainer);
 
 // Random color button
 const randomBtn = document.createElement('button');
-randomBtn.classList.add('randomBtn');
-randomBtn.textContent = 'Random color';
-randomBtn.style.cssText = 'height: 50px; width: 50px;';
+randomBtn.classList.add('randomBTN');
+randomBtn.textContent = 'Random';
 randomBtn.addEventListener('click', function () {
     pen_color = randomColor();
     console.log(pen_color);
@@ -82,7 +62,6 @@ buttonContainer.appendChild(randomBtn);
 const clearbutton = document.createElement('button');
 clearbutton.classList.add('clearBTN');
 clearbutton.textContent = 'Clear';
-clearbutton.style.cssText = 'height: 50px; width: 50px';
 buttonContainer.appendChild(clearbutton);
 clearbutton.addEventListener('click', clearBoard);
 function clearBoard () {
@@ -90,3 +69,26 @@ function clearBoard () {
         square.style.backgroundColor = 'white';
     });
 };
+
+
+
+// Other method to create square grid
+ /*
+    for (let i=1;i<=16;i++) {
+        const rowDiv = document.createElement('div');
+        //rowDiv.classList.add(`rowDiv${i}`);
+        rowDiv.style.cssText = 'display: flex';
+        rowDiv.classList.add('rowDiv');
+        grid.appendChild(rowDiv);
+
+        
+        for (let j=1; j<=16; j++) {
+        const squareGrid = document.createElement('div');
+        squareGrid.style.cssText =  `height: ${gridArea/gridSize}; width:${gridArea/gridSize}px; background-color: white`;
+        squareGrid.classList.add(`squareGrid`);
+        //squareGrid.textContent =`${squareCount}`;
+        rowDiv.appendChild(squareGrid);
+        }
+    }
+    */
+    
