@@ -37,7 +37,7 @@ squares.forEach(function(square) {
     });
 });
 function randomColor () {
-    value = parseInt((Math.random() * 999));
+    value = Math.floor(Math.random()*16777215).toString(16);
     return `#${value}`
 }
 
