@@ -56,7 +56,15 @@ randomBtn.addEventListener('click', function () {
 });
 buttonContainer.appendChild(randomBtn);
 
-
+//Set color button to black
+const blackBtn = document.createElement('button');
+blackBtn.classList.add('blackBTN');
+blackBtn.textContent = 'Black';
+blackBtn.addEventListener('click', function () {
+    pen_color = '#000';
+    console.log(pen_color);
+});
+buttonContainer.appendChild(blackBtn);
 
 // Create clear button
 const clearbutton = document.createElement('button');
