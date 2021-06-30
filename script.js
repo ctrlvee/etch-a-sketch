@@ -39,20 +39,31 @@ createSquares();
 
 let squares = Array.from(document.querySelectorAll('.squareGrid'));
 
+
 function allowMouse() {
+
+    
     squares = Array.from(document.querySelectorAll('.squareGrid'));
     squares.forEach(function(square) {
     square.addEventListener('mouseover', function () {
-        square.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        square.style.backgroundColor = pen_color;
         console.log('works');
-        });
+    });
     });
 };
-
-function randomColor () {
-    value = Math.floor(Math.random()*16777215).toString(16);
-    return `#${value}`
+// Does not work -- random color works & eventlistener is added but does not change the actual color of the square
+function allowRandomColor() {
+    squares = document.querySelectorAll('.squareGrid');
+    squares.forEach(function(square) {
+        square.addEventListener('mouseover', function () {
+            pen_color = Math.floor(Math.random()*16777215).toString(16);
+            square.style.backgroundColor = pen_color;
+            console.log(pen_color);
+    });
+    });
 }
+
+
 //Create new grid
 const createBtn = document.createElement('button');
 createBtn.classList.add('createBTN');
@@ -66,24 +77,37 @@ createBtn.addEventListener('click', function() {
     })
 
     createSquares();
-    allowMouse();
-
-    
-  
-    
-    
+    allowMouse();    
  });
-
+/*
 // Random color button
 const randomBtn = document.createElement('button');
 randomBtn.classList.add('randomBTN');
 randomBtn.textContent = 'Random';
 randomBtn.addEventListener('click', function () {
-    pen_color = randomColor();
-    console.log(pen_color);
-});
-buttonContainer.appendChild(randomBtn);
 
+    squares.forEach(function(square) {
+        square.replaceWith(square.cloneNode(true));   
+    });
+    allowRandomColor();
+    console.log('nothing');
+/*
+    squares = Array.from(document.querySelectorAll('.squareGrid'));
+    squares.forEach(function(square) {
+        square.replaceWith(square.cloneNode(true));
+    });
+    squares.forEach(function(square) {
+    square.addEventListener('mouseover', function () {
+        square.style.backgroundColor = Math.floor(Math.random()*16777215).toString(16);
+        console.log('works');
+        });
+    });
+    
+});
+    console.log(pen_color);
+
+buttonContainer.appendChild(randomBtn);
+*/
 //Set color button to black
 const blackBtn = document.createElement('button');
 blackBtn.classList.add('blackBTN');
