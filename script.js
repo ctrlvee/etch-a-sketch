@@ -1,4 +1,5 @@
 let pen_color = '#000';
+let gridSize = 16;
 /* Grid and squres */
 const gridContainer = document.querySelector(".gridContainer");
 gridContainer.style.cssText = '';
@@ -7,10 +8,17 @@ const grid = document.createElement('div');
 grid.classList.add('grid');
 gridContainer.appendChild(grid);
 
+/* Create container and clear button feature */
+const buttonContainer = document.createElement('div');
+buttonContainer.classList.add('buttonContainer');
+document.body.insertBefore(buttonContainer, gridContainer);
+
+
+
 function createSquares() {
     
     //let gridSize = prompt("Enter desired size ranging from 1x1 to 64x64");
-    let gridSize = 16;
+    
     // default if no value gridSize = 16    
 
     
@@ -25,26 +33,46 @@ function createSquares() {
    
     
 }
-
-
 createSquares();
 
-const squares = Array.from(document.querySelectorAll('.squareGrid'));
-squares.forEach(function(square) {
+
+
+let squares = Array.from(document.querySelectorAll('.squareGrid'));
+
+function allowMouse() {
+    squares = Array.from(document.querySelectorAll('.squareGrid'));
+    squares.forEach(function(square) {
     square.addEventListener('mouseover', function () {
-        square.style.backgroundColor = pen_color;
+        square.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
         console.log('works');
+        });
     });
-});
+};
+
 function randomColor () {
     value = Math.floor(Math.random()*16777215).toString(16);
     return `#${value}`
 }
+//Create new grid
+const createBtn = document.createElement('button');
+createBtn.classList.add('createBTN');
+createBtn.textContent = 'New Grid';
+buttonContainer.appendChild(createBtn);
+createBtn.addEventListener('click', function() {
+    gridSize = prompt("Enter desired size ranging from 1x1 to 64x64");
+    //const selectSquare = document.querySelectorAll('.squareGrid');
+    squares.forEach(function(square) {
+        grid.removeChild(square);
+    })
 
-/* Create container and clear button feature */
-const buttonContainer = document.createElement('div');
-buttonContainer.classList.add('buttonContainer');
-document.body.insertBefore(buttonContainer, gridContainer);
+    createSquares();
+    allowMouse();
+
+    
+  
+    
+    
+ });
 
 // Random color button
 const randomBtn = document.createElement('button');
@@ -78,6 +106,8 @@ function clearBoard () {
     });
 };
 
+
+allowMouse();
 
 
 // Other method to create square grid
