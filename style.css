@@ -10,7 +10,7 @@ h1 {
     font-family: 'Permanent Marker', cursive;
 }
 .gridContainer {
-    margin-top: 5%;
+    margin-top: 0%;
    
     width: 200x;
     height: 200px;
@@ -30,22 +30,25 @@ h1 {
     
   
 }
-
+/* In the future, make button ID if needed. And start with a default class I will apply to all buttons to avoid making so many copies like this below */
+.buttonContainer {
+    margin-top: 3%;
+}
 
 .clearBTN {
     font-family: 'Permanent Marker';
-    color: black;
-   
-
     height: 20px;
-    transition-duration: 0.4s
-}
-.clearBTN:hover {
-    
+
 }
 .randomBTN {
+    font-family: 'Permanent Marker';
     height: 20px;
 }
 .blackBTN {
+    font-family: 'Permanent Marker';
+    height: 20px;
+}
+.createBTN {
+    font-family: 'Permanent Marker';
     height: 20px;
 }

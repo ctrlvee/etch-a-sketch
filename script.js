@@ -11,7 +11,7 @@ gridContainer.appendChild(grid);
 /* Create container and clear button feature */
 const buttonContainer = document.createElement('div');
 buttonContainer.classList.add('buttonContainer');
-document.body.insertBefore(buttonContainer, gridContainer);
+document.body.appendChild(buttonContainer);
 
 
 
